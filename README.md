@@ -1,6 +1,6 @@
 # GY-302 (BH1750FVI) low-cost light sensor: calibration dataset and analysis code
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24308934.svg)](https://doi.org/10.5281/zenodo.24308934)
 [![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey.svg)](data/LICENSE-DATA.md)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 
@@ -108,7 +108,7 @@ The data come from a single GY-302 unit, a single LED source, laboratory conditi
 
 Please cite both the article and this dataset (see `CITATION.cff` or the Zenodo record):
 
-> Carvalho Neto, J. A.; Fontana, R. Y. A.; Gimenes, A. L. V.; Frigo, M. M.; Caneppele, F. L. (2026). *GY-302 (BH1750FVI) low-cost light sensor: calibration dataset and analysis code* (v1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX
+> Carvalho Neto, J. A.; Fontana, R. Y. A.; Gimenes, A. L. V.; Frigo, M. M.; Caneppele, F. L. (2026). *GY-302 (BH1750FVI) low-cost light sensor: calibration dataset and analysis code* (v1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.24308934
 
 ## Licence
 

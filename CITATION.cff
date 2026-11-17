@@ -6,7 +6,7 @@ version: 1.0.0
 date-released: 2026-11-17
 license: CC-BY-4.0
 repository-code: "https://github.com/fcaneppele/gy302-bh1750-broiler-calibration"
-# doi: 10.5281/zenodo.XXXXXXX   # uncomment after Zenodo assigns the DOI
+doi: 10.5281/zenodo.24308934
 keywords:
   - light sensor calibration
   - BH1750FVI
