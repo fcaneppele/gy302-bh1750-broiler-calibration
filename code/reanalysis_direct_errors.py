@@ -129,22 +129,28 @@ def main():
     # ---------- Stage 1: in-sample corrected (float and firmware-truncated) ----------
     res["stage1_insample_eq9_float"] = agreement(A_FW * raw + B_FW, ref1)
     res["stage1_insample_eq9_fw_trunc"] = agreement(fw_trunc(A_FW * raw + B_FW), ref1)
+    res["stage1_insample_eq9_round"] = agreement(np.floor(A_FW * raw + B_FW + 0.5), ref1)
 
     # ---------- Stage 1: leave-one-out CV on the SAME pairs (R2.2) ----------
-    loo_f, loo_t = np.empty_like(ref1), np.empty_like(ref1)
+    loo_f, loo_t, loo_r = np.empty_like(ref1), np.empty_like(ref1), np.empty_like(ref1)
     for i in range(len(raw)):
         m = np.ones(len(raw), bool); m[i] = False
         r = stats.linregress(raw[m], ref1[m])
         loo_f[i] = r.intercept + r.slope * raw[i]
         loo_t[i] = fw_trunc(loo_f[i])
+        loo_r[i] = np.floor(loo_f[i] + 0.5)   # round-to-nearest
     res["stage1_LOOCV_float"] = agreement(loo_f, ref1)
     res["stage1_LOOCV_fw_trunc"] = agreement(loo_t, ref1)
+    res["stage1_LOOCV_round"] = agreement(loo_r, ref1)
 
     # ---------- Stage 2: DIRECT errors, no refit (R1.1, R2.1) ----------
     res["stage2_direct_fw_output"] = agreement(cor2, ref2)
-    # Sensitivity: truncation removes on average ~0.5 lx; compensating by +0.5
-    # emulates round-to-nearest. HYPOTHETICAL firmware fix, not measured data.
+    # Constant-offset sensitivity: +0.5 lx is the EXPECTED effect of rounding vs
+    # truncation. Exact rounding cannot be simulated on Stage 2 (raw readings not
+    # recorded); it is simulated exactly on Stage 1 above. Not measured data.
     res["stage2_sensitivity_round_equiv"] = agreement(cor2 + 0.5, ref2)
+    d2 = cor2 - ref2
+    res["stage2_lag1_autocorr_differences"] = float(np.corrcoef(d2[:-1], d2[1:])[0, 1])
 
     # ---------- Stage 2: old regression (for traceability with manuscript) ----------
     res["stage2_old_refit_ref_on_corrected"] = ols(cor2, ref2)
@@ -227,7 +233,7 @@ def main():
     # ---------- spreadsheet ----------
     rows = []
     for k in ["stage1_raw_direct", "stage1_insample_eq9_fw_trunc", "stage1_LOOCV_float",
-              "stage1_LOOCV_fw_trunc", "stage2_direct_fw_output", "stage2_direct_ref_lt_10lx",
+              "stage1_LOOCV_fw_trunc", "stage1_LOOCV_round", "stage2_direct_fw_output", "stage2_direct_ref_lt_10lx",
               "stage2_direct_ref_ge_10lx", "stage2_sensitivity_round_equiv"]:
         r = res[k]
         rows.append({"analysis": k, "n": r["n"], "bias_lx": r["bias_lx"],
@@ -246,7 +252,7 @@ def main():
         "int lux2 = 0.7777*lux - 0.4562;  C float->int conversion truncates toward zero.",
         "Instrutherm/Instrubras ITR-3000: accuracy ±3% (incandescent 2854 K), ±6% other sources (LED); resolution 0.01 lx (20 lx range).",
         "Direct error e = sensor - reference; no second regression is fitted.",
-        "stage2_sensitivity_round_equiv adds +0.5 lx to emulate round-to-nearest: HYPOTHETICAL, not measured.",
+        "stage1_LOOCV_round simulates round-to-nearest exactly on Stage 1. stage2_sensitivity_round_equiv adds a constant +0.5 lx (expected effect of rounding): sensitivity analysis, not measured data.",
         "code/reanalysis_direct_errors.py"]})
     with pd.ExcelWriter(OUT / "GY302_calibration_dataset_and_metrics.xlsx") as xw:
         readme.to_excel(xw, sheet_name="README", index=False)

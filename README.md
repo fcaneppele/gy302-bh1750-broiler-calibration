@@ -1,6 +1,6 @@
 # GY-302 (BH1750FVI) low-cost light sensor: calibration dataset and analysis code
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24308934.svg)](https://doi.org/10.5281/zenodo.24308934)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24308933.svg)](https://doi.org/10.5281/zenodo.24308933)
 [![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey.svg)](data/LICENSE-DATA.md)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 
@@ -86,7 +86,9 @@ All accuracy metrics are **direct errors** `e = sensor − reference`. No second
 - GUM-style uncertainty budget (k = 2) for the corrected sensor at 2 to 40 lx
 - Regression fits (Stage 1, i.e. Eq. 9, and the former Stage 2 refit), kept for traceability only. **These are not accuracy metrics.**
 
-`stage2_sensitivity_round_equiv` adds +0.5 lx to emulate round-to-nearest in firmware. This is a **hypothetical** scenario, not measured data.
+Rounding versus truncation: `stage1_LOOCV_round` simulates round-to-nearest exactly on the Stage-1 pairs (raw readings available). `stage2_sensitivity_round_equiv` adds a constant +0.5 lx, the expected effect of rounding, to the Stage-2 outputs; it is a **sensitivity analysis**, not measured data. `stage2_lag1_autocorr_differences` reports serial dependence, which is why the confidence intervals should be regarded as approximate.
+
+The uncertainty budget is **conditional**: the ITR-3000 has no calibration certificate, so the budget assumes the instrument meets its nominal ±6% specification.
 
 ## Reproducing the results
 
@@ -108,7 +110,7 @@ The data come from a single GY-302 unit, a single LED source, laboratory conditi
 
 Please cite both the article and this dataset (see `CITATION.cff` or the Zenodo record):
 
-> Carvalho Neto, J. A.; Fontana, R. Y. A.; Gimenes, A. L. V.; Frigo, M. M.; Caneppele, F. L. (2026). *GY-302 (BH1750FVI) low-cost light sensor: calibration dataset and analysis code* (v1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.24308934
+> Carvalho Neto, J. A.; Fontana, R. Y. A.; Gimenes, A. L. V.; Frigo, M. M.; Caneppele, F. L. (2026). *GY-302 (BH1750FVI) low-cost light sensor: calibration dataset and analysis code* [Data set]. Zenodo. https://doi.org/10.5281/zenodo.24308933
 
 ## Licence
 
