@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+message: "If you use this dataset or code, please cite it as below, together with the associated article."
+type: dataset
+title: "GY-302 (BH1750FVI) low-cost light sensor: calibration dataset and analysis code"
+version: 1.0.0
+date-released: 2026-11-17
+license: CC-BY-4.0
+repository-code: "https://github.com/fcaneppele/gy302-bh1750-broiler-calibration"
+# doi: 10.5281/zenodo.XXXXXXX   # uncomment after Zenodo assigns the DOI
+keywords:
+  - light sensor calibration
+  - BH1750FVI
+  - GY-302
+  - low-cost instrumentation
+  - illuminance
+  - broiler house
+  - precision livestock farming
+  - Bland-Altman
+authors:
+  - family-names: "Carvalho Neto"
+    given-names: "Joubert Alves de"
+    affiliation: "Faculdade de Ciências Agronômicas (FCA), São Paulo State University (Unesp), Botucatu, Brazil"
+  - family-names: "Fontana"
+    given-names: "Rodolfo Yuri de Almeida"
+    affiliation: "Escola Politécnica, University of São Paulo (USP), São Paulo, Brazil"
+  - family-names: "Gimenes"
+    given-names: "André Luiz Veiga"
+    affiliation: "Escola Politécnica, University of São Paulo (USP), São Paulo, Brazil"
+  - family-names: "Frigo"
+    given-names: "Murilo Miceno"
+    affiliation: "Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso do Sul (IFMS), Brazil"
+  - family-names: "Caneppele"
+    given-names: "Fernando de Lima"
+    affiliation: "School of Animal Science and Food Engineering (FZEA), University of São Paulo (USP), Pirassununga, Brazil"
+    orcid: "https://orcid.org/0000-0003-4498-8682"
+preferred-citation:
+  type: article
+  title: "Laboratory Calibration and Agreement Assessment of a Low-Cost Digital Light Sensor (GY-302/BH1750FVI) for Broiler House Illuminance Monitoring"
+  journal: "Journal of Sensors"
+  year: 2026
+  status: submitted
+  authors:
+    - family-names: "Carvalho Neto"
+      given-names: "Joubert Alves de"
+    - family-names: "Fontana"
+      given-names: "Rodolfo Yuri de Almeida"
+    - family-names: "Gimenes"
+      given-names: "André Luiz Veiga"
+    - family-names: "Frigo"
+      given-names: "Murilo Miceno"
+    - family-names: "Caneppele"
+      given-names: "Fernando de Lima"
+      orcid: "https://orcid.org/0000-0003-4498-8682"

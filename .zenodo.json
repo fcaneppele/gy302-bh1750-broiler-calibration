@@ -1,0 +1,27 @@
+{
+  "upload_type": "dataset",
+  "title": "GY-302 (BH1750FVI) low-cost light sensor: calibration dataset and analysis code",
+  "description": "<p>Complete paired dataset (26 calibration pairs and 22 independent validation pairs) comparing a low-cost GY-302 (Rohm BH1750FVI) digital light sensor with an ITR-3000 reference luxmeter in the 1–45 lx range used in broiler-house lighting programmes, together with the Python code that reproduces the calibration equation and computes direct-error agreement metrics (bias, MAE, RMSE, maximum error, Bland–Altman limits of agreement, leave-one-out cross-validation) and a GUM-style uncertainty budget. It also includes an excerpt of the Arduino firmware that implements the correction.</p><p>The data were collected during the master's research of J. A. Carvalho Neto (FCA/Unesp, 2021) and support the article 'Laboratory Calibration and Agreement Assessment of a Low-Cost Digital Light Sensor (GY-302/BH1750FVI) for Broiler House Illuminance Monitoring' (Journal of Sensors).</p><p>Data: CC BY 4.0. Code: MIT.</p>",
+  "creators": [
+    {"name": "Carvalho Neto, Joubert Alves de", "affiliation": "Faculdade de Ciências Agronômicas (FCA), São Paulo State University (Unesp)"},
+    {"name": "Fontana, Rodolfo Yuri de Almeida", "affiliation": "Escola Politécnica, University of São Paulo (USP)"},
+    {"name": "Gimenes, André Luiz Veiga", "affiliation": "Escola Politécnica, University of São Paulo (USP)"},
+    {"name": "Frigo, Murilo Miceno", "affiliation": "Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso do Sul (IFMS)"},
+    {"name": "Caneppele, Fernando de Lima", "affiliation": "School of Animal Science and Food Engineering (FZEA), University of São Paulo (USP)", "orcid": "0000-0003-4498-8682"}
+  ],
+  "keywords": [
+    "light sensor calibration",
+    "BH1750FVI",
+    "GY-302",
+    "low-cost instrumentation",
+    "illuminance",
+    "broiler house",
+    "precision livestock farming",
+    "Bland-Altman",
+    "Arduino"
+  ],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "eng",
+  "version": "1.0.0"
+}
